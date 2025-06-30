@@ -1,0 +1,142 @@
+/* Reset dan global */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  line-height: 1.6;
+  padding: 0 16px;
+}
+
+/* Header */
+header {
+  background-color: #619eff;
+  color: white;
+  padding: 24px 16px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Section Container */
+.input_section,
+.search_section,
+.book_shelf {
+  background-color: #fff;
+  margin: 24px auto;
+  padding: 24px;
+  border-radius: 10px;
+  max-width: 720px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title in sections */
+.input_section h2,
+.search_section h2,
+.book_shelf h2 {
+  text-align: center;
+  color: #4a90e2;
+  margin-bottom: 24px;
+  font-size: 1.4rem;
+}
+
+/* Input styling */
+input[type='text'],
+input[type='number'],
+input[type='search'] {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* Checkbox */
+input[type='checkbox'] {
+  margin-right: 6px;
+}
+
+/* Submit button */
+.input_section button,
+.search_section button {
+  background-color: #619eff;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.input_section button:hover,
+.search_section button:hover {
+  background-color: #4a8ae0;
+}
+
+/* Book item styling */
+[data-testid='bookItem'] {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+[data-testid='bookItem'] h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+[data-testid='bookItem'] p {
+  margin-bottom: 6px;
+  color: #555;
+}
+
+[data-testid='bookItem'] button {
+  padding: 8px 12px;
+  margin-right: 8px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Action buttons */
+[data-testid='bookItemIsCompleteButton'] {
+  background-color: #4caf50;
+  color: white;
+}
+
+[data-testid='bookItemDeleteButton'] {
+  background-color: #e53935;
+  color: white;
+}
+
+[data-testid='bookItemEditButton'] {
+  background-color: #f9a825;
+  color: white;
+}
+
+[data-testid='bookItem'] button:hover {
+  opacity: 0.9;
+}
+
+/* Rak Judul */
+.book_shelf h2 {
+  font-size: 1.2rem;
+  border-bottom: 2px solid #619eff;
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+}
