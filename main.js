@@ -4,18 +4,22 @@ let books = [];
 
 // Event listener saat DOM sudah dimuat
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('inputBook');
-  const searchForm = document.getElementById('searchBook');
+  const form = document.querySelector('#inputBook');
+  const searchForm = document.querySelector('#searchBook');
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    addBook();
-  });
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      addBook();
+    });
+  }
 
-  searchForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    searchBook();
-  });
+  if (searchForm) {
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      searchBook();
+    });
+  }
 
   loadBooksFromStorage();
   renderBooks();
@@ -74,6 +78,8 @@ function renderBooks(filteredBooks = null) {
   const incompleteShelf = document.getElementById('incompleteBookshelfList');
   const completeShelf = document.getElementById('completeBookshelfList');
 
+  if (!incompleteShelf || !completeShelf) return;
+
   incompleteShelf.innerHTML = '';
   completeShelf.innerHTML = '';
 
@@ -93,12 +99,7 @@ function createBookElement(book) {
   const container = document.createElement('div');
   container.setAttribute('data-bookid', book.id);
   container.setAttribute('data-testid', 'bookItem');
-  container.style.marginBottom = '12px';
-  container.style.padding = '12px';
-  container.style.border = '1px solid #ddd';
-  container.style.borderRadius = '8px';
-  container.style.backgroundColor = '#fff';
-  container.style.boxShadow = '0 1px 4px rgba(0,0,0,0.1)';
+  container.className = 'book-item';
 
   const title = document.createElement('h3');
   title.setAttribute('data-testid', 'bookItemTitle');
@@ -113,7 +114,7 @@ function createBookElement(book) {
   year.innerText = `Tahun: ${book.year}`;
 
   const actionContainer = document.createElement('div');
-  actionContainer.style.marginTop = '10px';
+  actionContainer.className = 'action-container';
 
   const toggleButton = document.createElement('button');
   toggleButton.setAttribute('data-testid', 'bookItemIsCompleteButton');
@@ -123,17 +124,16 @@ function createBookElement(book) {
   const deleteButton = document.createElement('button');
   deleteButton.setAttribute('data-testid', 'bookItemDeleteButton');
   deleteButton.innerText = 'Hapus buku';
-  deleteButton.style.marginLeft = '8px';
+  deleteButton.className = 'btn-delete';
   deleteButton.addEventListener('click', () => deleteBook(book.id));
 
   const editButton = document.createElement('button');
   editButton.setAttribute('data-testid', 'bookItemEditButton');
   editButton.innerText = 'Edit buku';
-  editButton.style.marginLeft = '8px';
+  editButton.className = 'btn-edit';
   editButton.addEventListener('click', () => editBook(book.id));
 
   actionContainer.append(toggleButton, deleteButton, editButton);
-
   container.append(title, author, year, actionContainer);
   return container;
 }
